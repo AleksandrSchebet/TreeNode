@@ -1,0 +1,17 @@
+﻿@import 'material-icons/iconfont/material-icons.css';
+@import "bootstrap/dist/css/bootstrap.css";
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+.material-icons {
+    line-height: 0.8;
+    top: 0px;
+    position: relative;
+    display: inline-block;
+    margin-left: -2px;
+}
+.modal-body input[type="text"] {
+    width:100%
+}
