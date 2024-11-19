@@ -21,12 +21,12 @@ const RecursiveTreeView = forwardRef<RecursiveTreeviewRef, Props>((props, refs) 
 
     useImperativeHandle(refs, () => ({
         toogleNodes() {
-           setExpanded(expanded.length === 0 ? getNodeIds(props.nodes) : []);
+            setExpanded(expanded.length === 0 ? getNodeIds(props.nodes) : []);
         },
     }));
 
     function getNodeIds(nodes: IUserNode[]) {
-        return nodes.reduce((r:number[], { id, children }) => {
+        return nodes.reduce((r: number[], { id, children }) => {
             r.push(id, ...(children ? getNodeIds(children) : []))
             return r
         }, [])
@@ -47,16 +47,13 @@ function TreeViewChild(props: { nodes: IUserNode[] }) {
             (item, index) => {
                 return (
                     <Fragment key={index}>
-                        {item.children.length === 0 ? <TreeViewItem nodeId={item.id} key={item.id} data-name={item.name} label={item.name}></TreeViewItem>
-                            :
-                            <TreeViewItem nodeId={item.id} key={item.id} data-name={item.name} label={item.name}>
-                                <TreeViewChild nodes={item.children} />
-                            </TreeViewItem>
-                        }
+                        <TreeViewItem nodeId={item.id} key={item.id} data-name={item.name} label={item.name}>
+                            {item.children.length > 0 && <TreeViewChild nodes={item.children} />}
+                        </TreeViewItem>
                     </Fragment>
-                )
-            }
-        )
+                    )
+                }
+            )
         }
     </Fragment >
 }

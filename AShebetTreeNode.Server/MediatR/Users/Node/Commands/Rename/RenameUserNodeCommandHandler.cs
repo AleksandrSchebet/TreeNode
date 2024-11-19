@@ -15,6 +15,10 @@ namespace AShebetTreeNode.Server.MediatR.Users.Node.Commands.Rename
             {
                 throw new DuplicateUserNodeException();
             }
+            if (!dbUser.ParentId.HasValue)
+            {
+                throw new UserNodeException("Rename of Root level node is not allowed");
+            }
             dbUser.Name = request.NewNodeName;
             await DbContext.SaveChangesAsync(cancellationToken);
             return Unit.Value;
