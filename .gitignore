@@ -52,3 +52,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.vsidx
+packages/*
+v17/*
+.vs/
+package-lock.json
