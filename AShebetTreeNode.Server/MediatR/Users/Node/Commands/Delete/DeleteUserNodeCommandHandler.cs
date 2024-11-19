@@ -17,7 +17,7 @@ namespace AShebetTreeNode.Server.MediatR.Users.Node.Commands.Delete
             }
             if (!dbUser.ParentId.HasValue)
             {
-                throw new UserNodeException("Rename of Root level node is not allowed");
+                throw new UserNodeException("Deletion of Root level node is not allowed");
             }
             DbContext.UserNodes.Remove(dbUser);
             await DbContext.SaveChangesAsync(cancellationToken);
