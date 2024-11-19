@@ -50,7 +50,6 @@ dist-ssr
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
 *.vsidx
 packages/*
