@@ -112,7 +112,7 @@ const UserNodeView = () => {
 
     return loading ? <p><em>Loading...</em></p> :
         (
-            <div style={{ width: "600px" }}>
+            <div style={{ maxWidth: "600px" }}>
                 <div className="container">
                     <div className="row row-cols-1">
                         <div className="col">
